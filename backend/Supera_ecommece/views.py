@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+
 from .serializers import *
 
 # Classes de views com authenticação OBRIGATORIA via Token
@@ -29,5 +30,6 @@ class ProfissoesViews(viewsets.ModelViewSet):
 class JogosViews(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
-    queryset = Jogos.objects.all()
+    queryset = Jogos.objects.all().order_by('nome')  # Ordenando por ordem alfabetica dos nomes
     serializer_class = JogoSerializer
+
