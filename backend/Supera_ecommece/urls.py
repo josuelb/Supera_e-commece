@@ -23,5 +23,8 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     # Rota para fazer a requisição com o Token para obter a API
-    path('api/supera/', include(router.urls))
+    path('api/supera/', include(router.urls)),
+    path('api/supera/Cliente/', ClienteView.as_view(), name='APICliente'),
+    # Rota para o Authentication
+    path('authentication/', Authentication, name='authentication')
 ]
